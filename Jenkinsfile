@@ -10,7 +10,6 @@ pipeline {
                 }
             }
             steps {
-                cleanWs()
                 echo 'building started...'
                 sh '''
                     ls -al 
@@ -20,12 +19,15 @@ pipeline {
                     npm run build
                     ls build | grep "index.html"
                 '''
-                echo 'testing started...'
-                sh '''
-                    ls build | grep "index.html"
-                    npm test
-                '''
             }
+        }
+        stage("Test"){
+            echo "test stage..."
+            sh '''
+                ls -al 
+                test -f build/index.html
+                npm test
+            '''
         }
         
     }
