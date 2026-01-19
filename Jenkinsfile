@@ -18,8 +18,15 @@ pipeline {
                     npm --version
                     npm ci
                     npm run build
+                    ls build | grep "index.html"
+                '''
+                echo 'testing started...'
+                sh '''
+                    ls build | grep "index.html"
+                    npm test
                 '''
             }
         }
+        
     }
 }
