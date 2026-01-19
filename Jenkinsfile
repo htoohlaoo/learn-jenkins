@@ -28,12 +28,15 @@ pipeline {
                     reuseNode true
                 }
             }
-            echo "test stage..."
-            sh '''
-                ls -al 
-                test -f build/index.html
-                npm test
-            '''
+            steps {
+                echo "test stage..."
+                sh '''
+                    ls -al 
+                    test -f build/index.html
+                    npm test
+                '''
+            }
+            
         }
         
     }
