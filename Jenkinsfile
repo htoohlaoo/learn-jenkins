@@ -9,6 +9,7 @@ pipeline {
                     ls -al 
                     node --version
                     npm --version
+                    npm ci
                 '''
             }
         }
